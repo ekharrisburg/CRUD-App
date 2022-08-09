@@ -1,3 +1,3 @@
-# CRUD-App-
+# CYOM569 - Final Project
 
-First Node Js based CRUD app test
+Node Js (ExpressJS) based CRUD app.
