@@ -2,6 +2,7 @@ const express= require('express');
 const mongoose= require('mongoose');
 
 const app=express();
+app1.disable("x-powered-by");
 
 const port=9000;
 const url= "mongodb://localhost:27017";
