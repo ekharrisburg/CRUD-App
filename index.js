@@ -7,7 +7,7 @@ const app=express();
 app.disable("x-powered-by");
 
 const port=9000;
-const url= "mongodb://localhost:27017";
+const url= "mongodb://db:27017";
 
 mongoose.connect(url,{useNewUrlParser: true});
 const con= mongoose.connection;

@@ -5,7 +5,7 @@ networks:
 volumes:
     prometheus_data: {}
     grafana_data: {}
-    mongodb_data_container:
+
 services:
   prometheus:
     image: prom/prometheus:v2.20.1
@@ -35,16 +35,15 @@ services:
       - 3000
     networks:
       - monitoring
-  mongodb_container:
+  db:
     image: mongo:latest
     ports:
       - 27017:27017
-    volumes:
-      - mongodb_data_container:/data/db
+    networks:
+      - monitoring
 
   crud-app:
-    build:
-      context: ./
+    build: .
     ports:
       - 9000:9000
     expose:
