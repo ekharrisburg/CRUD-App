@@ -26,7 +26,7 @@ app.use('/students',studentrouter)
 
 
 
-// ================ Promethues ==================
+// ================ Prometheus ==================
 
 //Create a Registry to register the metrics
 const register = new client.Registry();
@@ -84,7 +84,6 @@ const createDelayHandler = async (req, res) => {
     res.end('Slow url accessed!');
   };
 
-//app.listen(9090, () => console.log('Server is running on http://localhost:8080, metrics are exposed on http://localhost:8080/metrics'));
 
 app.listen(port, () =>{
     console.log('Server started');

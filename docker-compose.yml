@@ -43,7 +43,8 @@ services:
       - monitoring
 
   crud-app:
-    build: .
+    build:
+      context: .
     ports:
       - 9000:9000
     expose:

@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.26.1 (a9d05d509)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: crud-app
+  name: crud-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: crud-app
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert
+        kompose.version: 1.26.1 (a9d05d509)
+      creationTimestamp: null
+      labels:
+        io.kompose.network/: "true"
+        io.kompose.service: crud-app
+    spec:
+      containers:
+        - image: ekhateeb/crud-app
+          name: crud-app
+          ports:
+            - containerPort: 9000
+          resources: {}
+        initContainers:
+        - name: init-db
+          image: busybox
+          command: ['sh', '-c', 'until nc -z db:27017; do echo waiting for db; sleep 2; done;']
+      restartPolicy: Always
+status: {}
